@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Okay, but why? — Community Blog & Editorial Journal</title>
+  
+  <!-- Google Site Verification -->
+  <meta name="google-site-verification" content="DrjwlUOBwyH-eZ5XSoBX3tiHStELOU4U6COq4WBUINc" />
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+            editorial: ['Bodoni Moda', 'serif'],
+            jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#fff1f2',
+              100: '#ffe4e6',
+              500: '#f43f5e',
+              600: '#e11d48',
+              700: '#be123c',
+            },
+            sand: {
+              50: '#FAF8F5',
+              100: '#F4EFEA',
+              200: '#E8DFD5',
+              800: '#4A4036',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.03);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(150, 150, 150, 0.3);
+      border-radius: 3px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #e11d48;
+    }
+
+    .grain-bg {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+    }
+
+    @keyframes markPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.4); }
+      50% { shadow: 0 0 0 10px rgba(225, 29, 72, 0); }
+    }
+
+    .animate-mark-pulse {
+      animation: markPulse 3s infinite;
+    }
+
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .line-clamp-3 {
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .animate-fade-in {
+      animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-slide-up {
+      animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .animate-drawer-in {
+      animation: drawerIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px) scale(0.97); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes drawerIn {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+
+    @keyframes heroGradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes orbFloatOne {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-35px, 25px) scale(1.18); }
+    }
+
+    @keyframes orbFloatTwo {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(45px, -30px) scale(1.22); }
+    }
+
+    .hero-animated-gradient {
+      background: linear-gradient(-45deg, #0f172a, #4c0519, #881337, #1e1b4b, #2e1065, #0f172a);
+      background-size: 350% 350%;
+      animation: heroGradientShift 12s ease infinite;
+    }
+
+    .animate-orb-1 {
+      animation: orbFloatOne 7s ease-in-out infinite;
+    }
+
+    .animate-orb-2 {
+      animation: orbFloatTwo 9s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-sand-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 antialiased min-h-full flex flex-col transition-colors duration-300 grain-bg">
+
+  <!-- TOP ANNOUNCEMENT BANNER -->
+  <div class="bg-slate-900 text-slate-300 px-4 py-2 text-xs border-b border-slate-800 flex justify-between items-center">
+    <div class="flex items-center gap-2">
+      <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+      <span class="font-bold text-white">Okay, but why?</span>
+      <span class="text-slate-500 hidden sm:inline">| Community Essayist Journal &amp; Editorial Blog</span>
+    </div>
+    <div class="flex items-center gap-3 text-[11px]">
+      <span class="text-slate-400">Feature your article: <a href="mailto:herart36@gmail.com" class="text-rose-400 hover:underline font-bold">herart36@gmail.com</a></span>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-40 w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- BRAND LOGO -->
+      <div class="flex items-center space-x-3 cursor-pointer group" onclick="switchView('public')" title="Okay, but why? — Home">
+        
+        <!-- Option 3 Dialogue Mark -->
+        <div class="relative flex items-center justify-center">
+          <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-rose-500/10 via-amber-500/10 to-rose-600/20 border border-rose-500/30 flex items-center justify-center text-rose-600 dark:text-rose-400 font-black text-lg sm:text-xl shadow-md group-hover:scale-110 group-hover:rotate-6 group-hover:bg-rose-600 group-hover:text-white transition-all duration-300 animate-mark-pulse">
+            <i class="fa-solid fa-quote-left text-rose-600 dark:text-rose-400 group-hover:text-white transition-colors duration-300"></i>
+          </div>
+          <span class="absolute -top-1 -right-1 flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+          </span>
+        </div>
+
+        <!-- Stacked Brand Typography -->
+        <div class="flex flex-col text-left leading-none">
+          <span class="font-jakarta font-black text-xs sm:text-sm tracking-[0.2em] uppercase text-slate-800 dark:text-slate-100 group-hover:text-rose-600 transition-colors duration-200">
+            OKAY,
+          </span>
+          <span class="font-editorial italic font-black text-xl sm:text-2xl text-rose-600 dark:text-rose-500 tracking-tight my-0.5 group-hover:scale-105 transition-transform duration-300 inline-block origin-left">
+            but why?
+          </span>
+          <span class="font-sans text-[8px] sm:text-[9px] uppercase tracking-widest text-slate-500 font-bold">
+            Fashion • Lifestyle • Culture
+          </span>
+        </div>
+
+      </div>
+
+      <!-- Navigation Action Buttons -->
+      <div class="flex items-center space-x-2 sm:space-x-3">
+        <button id="nav-public-btn" onclick="switchView('public')" class="px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 bg-rose-600 text-white shadow-md">
+          <i class="fa-solid fa-newspaper mr-1.5"></i> Blog Feed
+        </button>
+        <button onclick="openEmailSubmitModal()" class="px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 flex items-center gap-1.5">
+          <i class="fa-solid fa-paper-plane text-rose-500"></i>
+          <span>Submit Story</span>
+        </button>
+      </div>
+
+      <!-- Quick Utility Controls -->
+      <div class="flex items-center space-x-2">
+        <button onclick="toggleBookmarkDrawer()" class="relative p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-rose-500 hover:scale-105 active:scale-95 transition-all duration-200 border border-slate-200 dark:border-slate-700" title="Saved Bookmarks">
+          <i class="fa-solid fa-bookmark"></i>
+          <span id="bookmark-badge" class="hidden absolute -top-1 -right-1 bg-rose-600 text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
+        </button>
+
+        <button onclick="toggleDarkMode()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-rose-500 hover:scale-105 active:scale-95 transition-all duration-200 border border-slate-200 dark:border-slate-700" title="Toggle Dark Mode">
+          <i id="dark-icon" class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- Secret Admin Shortcut Quick Trigger (Discreet Lock) -->
+        <button onclick="openAdminAuthModal()" class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-all border border-slate-200 dark:border-slate-700" title="Editor Desk (Staff)">
+          <i class="fa-solid fa-user-gear text-xs"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+    <!-- PUBLIC VIEW -->
+    <div id="public-view" class="space-y-10">
+
+      <!-- Hero Banner -->
+      <section class="relative overflow-hidden rounded-3xl hero-animated-gradient text-white p-8 md:p-12 shadow-2xl border border-rose-900/40">
+        <!-- Ambient Glowing Animated Orbs -->
+        <div class="absolute -top-20 -right-20 w-96 h-96 bg-gradient-to-tr from-rose-500/30 to-amber-500/25 rounded-full blur-3xl pointer-events-none animate-orb-1"></div>
+        <div class="absolute -bottom-24 -left-20 w-80 h-80 bg-gradient-to-br from-violet-600/35 to-rose-600/20 rounded-full blur-3xl pointer-events-none animate-orb-2"></div>
+        <div class="absolute inset-0 bg-slate-950/20 backdrop-blur-[1px] pointer-events-none"></div>
+
+        <div class="max-w-3xl relative z-10 space-y-4">
+          <span class="inline-block px-3.5 py-1 bg-rose-500/25 text-rose-200 rounded-full text-xs font-bold tracking-wider uppercase border border-rose-400/30 shadow-sm backdrop-blur-md">
+            Whoever Said Blogging Is Outdated Was Wrong
+          </span>
+          <h1 class="text-3xl sm:text-5xl font-black font-serif tracking-tight leading-tight drop-shadow-md">
+            They said blogging is dead. We say short attention spans are just noisy.
+          </h1>
+          <p class="text-slate-200 text-sm sm:text-base leading-relaxed font-light drop-shadow-sm">
+            Welcome to <strong class="text-white font-semibold">Okay, but why?</strong> — a digital space built to bring back meaningful reading. In an era dominated by 15-second videos and algorithmic doomscrolling, we publish deep dives, unfiltered essays, fashion critiques, showbiz analysis, and culture commentary for people who still love to read and think.
+          </p>
+        </div>
+      </section>
+
+      <section class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 md:p-8 shadow-sm space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-rose-600 to-amber-500 text-white flex items-center justify-center font-black text-lg shadow-md shadow-rose-500/20">
+              <i class="fa-solid fa-fire text-amber-300"></i>
+            </div>
+            <div>
+              <h2 class="font-serif font-black text-xl sm:text-2xl text-slate-900 dark:text-white flex items-center gap-2">
+                Most Popular Stories
+              </h2>
+              <p class="text-xs text-slate-500 font-medium">Ranked by reader clicks, likes, and saves</p>
+            </div>
+          </div>
+          <span class="text-[11px] font-bold text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 px-3 py-1 rounded-full border border-rose-200 dark:border-rose-900/50 self-start sm:self-auto">
+            🔥 Community Trending
+          </span>
+        </div>
+
+        <div id="most-popular-container" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <!-- Dynamic Most Popular Cards Injected via JS -->
+        </div>
+      </section>
+
+      <!-- Category Filter & Search Bar -->
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 border-b border-slate-200 dark:border-slate-800 pb-6">
+        <div id="category-bar" class="flex flex-wrap gap-2 w-full md:w-auto">
+          <!-- Dynamic category tabs -->
+        </div>
+
+        <div class="relative w-full md:w-80">
+          <input type="text" id="search-input" oninput="handleSearch(this.value)" placeholder="Search articles, author, keywords..." class="w-full pl-10 pr-4 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-rose-500 transition shadow-sm">
+          <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Articles Feed Column -->
+        <div class="lg:col-span-8 space-y-8">
+          <div id="featured-hero-container" class="transition-all duration-300">
+            <!-- Hero Featured Post -->
+          </div>
+
+          <div id="posts-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6 transition-all duration-300">
+            <!-- Grid Articles -->
+          </div>
+
+          <div id="empty-feed-state" class="hidden text-center py-16 bg-white dark:bg-slate-900 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800 p-8">
+            <i class="fa-solid fa-folder-open text-4xl text-slate-400 mb-3"></i>
+            <h3 class="text-base font-bold text-slate-700 dark:text-slate-200">No articles found</h3>
+            <p class="text-xs text-slate-500 max-w-xs mx-auto mt-1">Try resetting your search query or email your story draft to herart36@gmail.com!</p>
+          </div>
+        </div>
+
+        <!-- Sidebar Column -->
+        <aside class="lg:col-span-4 space-y-8">
+          
+          <!-- Editorial Bio Card -->
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 rounded-2xl bg-rose-500/10 border border-rose-500/30 flex items-center justify-center text-rose-500 font-black text-xl shadow-md">
+                <i class="fa-solid fa-quote-left"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-sm text-slate-900 dark:text-white">Editorial Board</h3>
+                <p class="text-xs text-rose-500 font-semibold">Okay, but why? Desk</p>
+              </div>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed font-light">
+              We curate hot takes on societal dilemmas, fashion evolution, politics, showbiz controversies, and slow-living reflections.
+            </p>
+            <button onclick="openEmailSubmitModal()" class="w-full bg-slate-900 dark:bg-slate-800 hover:bg-rose-600 text-white py-2.5 rounded-xl text-xs font-bold transition flex items-center justify-center space-x-2 shadow-sm">
+              <i class="fa-solid fa-paper-plane text-rose-400"></i>
+              <span>Email Your Draft Story</span>
+            </button>
+          </div>
+
+          <!-- Interactive Weekly Community Poll Widget -->
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 px-2.5 py-1 rounded-full border border-rose-200 dark:border-rose-900/50 flex items-center gap-1.5">
+                <i class="fa-solid fa-square-poll-vertical text-rose-500"></i> Question of the Week
+              </span>
+              <span id="poll-total-votes" class="text-[10px] text-slate-400 font-mono font-bold">1,482 votes</span>
+            </div>
+
+            <h4 class="font-serif font-bold text-sm text-slate-900 dark:text-white leading-snug">
+              Are 15-second TikTok/Reels videos permanently ruining our long-form reading attention span?
+            </h4>
+
+            <div id="poll-widget-container" class="space-y-2.5 pt-1">
+              <!-- Interactive Poll Buttons & Results Injected via JS -->
+            </div>
+          </div>
+
+          <!-- Hashtags Bar -->
+          <div class="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm">
+            <h3 class="font-bold text-xs uppercase tracking-wider text-slate-900 dark:text-white mb-4">Trending Hashtags</h3>
+            <div id="sidebar-tags" class="flex flex-wrap gap-2">
+              <!-- Dynamic tags -->
+            </div>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+
+    <!-- ADMIN VIEW -->
+    <div id="admin-view" class="hidden space-y-8">
+
+      <!-- Admin Header Banner -->
+      <div class="bg-slate-900 text-white p-6 sm:p-8 rounded-3xl border border-slate-800 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 shadow-xl">
+        <div>
+          <div class="flex items-center space-x-3 mb-2">
+            <span class="px-3 py-1 bg-rose-500/20 text-rose-400 rounded-full text-xs font-bold uppercase tracking-wider border border-rose-500/30">
+              Admin &amp; Moderation Hub
+            </span>
+            <span id="admin-auth-indicator" class="text-xs text-emerald-400 font-semibold flex items-center">
+              <i class="fa-solid fa-lock-open mr-1"></i> Authenticated
+            </span>
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold font-serif">Platform Permissions &amp; Published Manager</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">Manage live feed articles, edit content, or publish original stories directly.</p>
+        </div>
+
+        <div class="flex items-center space-x-3">
+          <button onclick="openNewPostModal()" class="bg-rose-600 hover:bg-rose-500 text-white px-4 py-2 rounded-xl text-xs font-bold transition flex items-center space-x-2 shadow-lg">
+            <i class="fa-solid fa-plus"></i>
+            <span>Create Direct Admin Post</span>
+          </button>
+          <button onclick="handleAdminLogout()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-2 rounded-xl text-xs font-semibold border border-slate-700">
+            <i class="fa-solid fa-right-from-bracket mr-1"></i> Log Out
+          </button>
+        </div>
+      </div>
+
+      <!-- Published Articles Manager -->
+      <div class="bg-white dark:bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center space-x-2">
+              <i class="fa-solid fa-globe text-emerald-500"></i>
+              <span>Published Articles Manager</span>
+            </h3>
+            <p class="text-xs text-slate-500">Manage existing live blog posts on the public feed.</p>
+          </div>
+        </div>
+
+        <div id="published-manager-list" class="space-y-3">
+          <!-- Published posts list -->
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- EMAIL SUBMISSION INFO MODAL -->
+  <div id="email-submit-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto animate-fade-in">
+    <div class="bg-white dark:bg-slate-900 max-w-lg w-full rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl p-6 md:p-8 space-y-5 my-8 animate-slide-up relative">
+      <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl bg-rose-500/10 text-rose-500 flex items-center justify-center font-bold text-lg">
+            <i class="fa-solid fa-paper-plane"></i>
+          </div>
+          <div>
+            <h3 class="font-extrabold text-lg text-slate-900 dark:text-white">Submit Your Article</h3>
+            <p class="text-xs text-slate-500">Share your draft with our editorial board</p>
+          </div>
+        </div>
+        <button onclick="closeEmailSubmitModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white text-lg p-2">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="space-y-4 text-xs text-slate-600 dark:text-slate-300">
+        <p class="leading-relaxed">
+          We accept submissions on fashion, societal issues, politics, showbiz, and slow living. To submit your article, send an email to:
+        </p>
+
+        <div class="bg-slate-100 dark:bg-slate-800 p-4 rounded-2xl border border-slate-200 dark:border-slate-700 text-center space-y-2">
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Editor Email Address</span>
+          <p class="text-base font-mono font-bold text-rose-600 dark:text-rose-400 select-all">herart36@gmail.com</p>
+          <button onclick="copySubmissionEmail()" class="bg-rose-600 hover:bg-rose-500 text-white px-4 py-1.5 rounded-xl font-bold text-xs transition shadow-md">
+            <i class="fa-solid fa-copy mr-1"></i> Copy Email Address
+          </button>
+        </div>
+
+        <div class="space-y-2 border-t border-slate-100 dark:border-slate-800 pt-3">
+          <p class="font-bold text-slate-800 dark:text-slate-200">What to include in your email:</p>
+          <ul class="list-disc pl-4 space-y-1 text-slate-500 dark:text-slate-400">
+            <li>Article Title &amp; Category Preference</li>
+            <li>Your Full Name or Desired Author Alias</li>
+            <li>Full Article Content or Document File</li>
+            <li>Images, GIFs, or Video attachments</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-2 flex justify-end">
+        <a href="mailto:herart36@gmail.com?subject=Story%20Submission%20for%20Okay,%20but%20why?" class="w-full text-center bg-slate-900 dark:bg-slate-800 hover:bg-rose-600 text-white py-2.5 rounded-xl font-bold text-xs transition">
+          <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Open Default Email App
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCREET ADMIN LOGIN MODAL -->
+  <div id="admin-auth-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto animate-fade-in">
+    <div class="bg-white dark:bg-slate-900 max-w-md w-full rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl p-6 md:p-8 space-y-5 my-8 animate-slide-up relative">
+      
+      <button onclick="closeAdminAuthModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 dark:hover:text-white text-lg p-2 transition-colors">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="text-center space-y-1.5 pt-2">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-rose-600 to-amber-500 flex items-center justify-center text-white font-black text-2xl mx-auto shadow-lg shadow-rose-500/20">
+          <i class="fa-solid fa-shield-halved text-xl"></i>
+        </div>
+        <h3 class="font-serif font-black text-2xl text-slate-900 dark:text-white">Editorial Desk Access</h3>
+        <p class="text-xs text-slate-500">Authorized staff sign in to publish and edit blog articles</p>
+      </div>
+
+      <form onsubmit="handleAdminAuth(event)" class="space-y-3.5 pt-2">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Username or Email Address</label>
+          <input type="text" id="admin-input-user" required placeholder="Username or email address" class="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-rose-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Password</label>
+          <input type="password" id="admin-input-password" required placeholder="Enter password" class="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-rose-500">
+        </div>
+
+        <button type="submit" class="w-full bg-rose-600 hover:bg-rose-500 text-white py-2.5 rounded-xl text-xs font-bold shadow-lg shadow-rose-600/30 transition-all duration-200">
+          Sign In to Admin Hub
+        </button>
+      </form>
+      <div class="text-center text-[10px] text-slate-400">
+        Tip: Press <kbd class="px-1.5 py-0.5 bg-slate-200 dark:bg-slate-800 rounded font-mono font-bold">Ctrl + Shift + A</kbd> anytime to open this login modal.
+      </div>
+    </div>
+  </div>
+
+  <!-- ARTICLE READER MODAL -->
+  <div id="reader-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto animate-fade-in">
+    <div class="bg-white dark:bg-slate-900 max-w-3xl w-full max-h-[90vh] rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden flex flex-col my-8 animate-slide-up">
+      
+      <div class="p-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center bg-slate-50 dark:bg-slate-900/50">
+        <span id="modal-category" class="px-3 py-1 bg-rose-100 dark:bg-rose-900/40 text-rose-700 dark:text-rose-300 text-[10px] font-black rounded-full uppercase tracking-wider">
+          Category
+        </span>
+        <div class="flex items-center space-x-2">
+          <button onclick="toggleBookmarkCurrentPost()" class="p-2 text-slate-400 hover:text-rose-500 transition-colors">
+            <i id="modal-bookmark-icon" class="fa-solid fa-bookmark"></i>
+          </button>
+          <button onclick="closeReaderModal()" class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white text-lg">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="p-6 md:p-8 overflow-y-auto space-y-6">
+        <h1 id="modal-title" class="text-2xl md:text-4xl font-black font-serif text-slate-900 dark:text-white leading-tight">
+          Article Title
+        </h1>
+
+        <div class="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+          <div class="flex items-center space-x-3 text-xs text-slate-500">
+            <div class="w-8 h-8 rounded-full bg-rose-600 flex items-center justify-center text-white font-bold text-xs" id="modal-author-avatar">
+              ?
+            </div>
+            <div>
+              <span id="modal-author-name" class="font-bold text-slate-800 dark:text-slate-200 block">Author</span>
+              <span id="modal-date-time" class="text-[10px]">Date • Read Time</span>
+            </div>
+          </div>
+
+          <div class="flex items-center space-x-2">
+            <span class="text-[10px] text-slate-400 font-mono flex items-center gap-1"><i class="fa-solid fa-eye text-slate-400"></i> <span id="modal-views-count">0</span></span>
+            <button onclick="toggleLikeCurrentPost()" class="flex items-center space-x-1.5 px-3 py-1.5 rounded-xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 text-xs font-bold hover:bg-rose-100 transition">
+              <i class="fa-solid fa-heart text-rose-500"></i>
+              <span id="modal-likes-count">0</span>
+            </button>
+          </div>
+        </div>
+
+        <div id="modal-cover-container" class="w-full overflow-hidden rounded-2xl shadow-md">
+          <img id="modal-cover" src="" class="w-full h-64 md:h-80 object-cover" alt="Cover Media">
+        </div>
+
+        <div id="modal-content" class="text-slate-700 dark:text-slate-300 text-sm md:text-base leading-relaxed space-y-4 font-sans">
+          <!-- Article HTML -->
+        </div>
+
+        <!-- Source Attribution -->
+        <div id="modal-source-container" class="hidden text-xs text-slate-500 dark:text-slate-400 italic pt-2 border-t border-slate-100 dark:border-slate-800/60">
+          <span class="font-semibold">Source / Reference:</span> <a id="modal-source-link" href="#" target="_blank" rel="noopener" class="text-rose-600 dark:text-rose-400 hover:underline"></a>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="pt-8 border-t border-slate-100 dark:border-slate-800">
+          <h3 class="font-bold text-base text-slate-900 dark:text-white mb-4">Comments (<span id="comments-count">0</span>)</h3>
+          
+          <div id="modal-comments-list" class="space-y-3 mb-6">
+            <!-- Comments injected -->
+          </div>
+
+          <form onsubmit="handleAddComment(event)" class="space-y-3">
+            <div class="flex space-x-2">
+              <input type="text" id="comment-author-input" required placeholder="Your Name" class="w-1/3 px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs focus:outline-none">
+              <input type="text" id="comment-text-input" required placeholder="Leave a comment..." class="w-2/3 px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs focus:outline-none">
+            </div>
+            <button type="submit" class="bg-rose-600 hover:bg-rose-500 text-white px-4 py-1.5 rounded-xl text-xs font-bold transition">
+              Post Comment
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ADMIN CREATE / EDIT POST MODAL -->
+  <div id="post-editor-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto animate-fade-in">
+    <div class="bg-white dark:bg-slate-900 max-w-2xl w-full rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl p-6 md:p-8 space-y-4 my-8 animate-slide-up">
+      <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3">
+        <h3 id="form-modal-title" class="font-bold text-base text-slate-900 dark:text-white">Admin Post Editor</h3>
+        <button onclick="closePostEditorModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white text-lg">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <form id="admin-post-form" onsubmit="saveAdminPost(event)" class="space-y-4">
+        <input type="hidden" id="admin-post-id" value="">
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Article Title</label>
+          <input type="text" id="admin-form-title" required class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs focus:outline-none">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Category</label>
+            <select id="admin-form-category" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs focus:outline-none">
+              <option value="Fashion &amp; Style">Fashion &amp; Style</option>
+              <option value="Societal Issues">Societal Issues</option>
+              <option value="Lifestyle &amp; Culture">Lifestyle &amp; Culture</option>
+              <option value="Politics">Politics</option>
+              <option value="Showbiz">Showbiz</option>
+              <option value="Slow Living">Slow Living</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Author Name</label>
+            <input type="text" id="admin-form-author" required class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs focus:outline-none">
+          </div>
+        </div>
+
+        <!-- Source / Reference Fields -->
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Source Name (Optional)</label>
+            <input type="text" id="admin-form-source-name" placeholder="e.g. Vogue, Reuters, Twitter" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Source URL (Optional)</label>
+            <input type="url" id="admin-form-source-url" placeholder="https://..." class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs focus:outline-none">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Upload Media (Pictures, GIFs, or Videos Only)</label>
+          <div class="relative flex items-center justify-center border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-2xl p-4 bg-slate-50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer group">
+            <input type="file" id="admin-media-file" accept="image/*,video/*" onchange="handleMediaUpload(event, 'admin')" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+            <div class="text-center space-y-1" id="admin-media-preview-container">
+              <i class="fa-solid fa-cloud-arrow-up text-rose-500 text-2xl group-hover:scale-110 transition-transform"></i>
+              <p class="text-xs font-semibold text-slate-700 dark:text-slate-300">Click or drag media here</p>
+              <p class="text-[10px] text-slate-400">Accepted formats: JPG, PNG, GIF, WEBP, MP4, WEBM</p>
+            </div>
+          </div>
+          <input type="hidden" id="admin-form-image" value="">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Excerpt Summary</label>
+          <input type="text" id="admin-form-excerpt" required class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs focus:outline-none">
+        </div>
+
+        <div>
+          <div class="flex justify-between items-center mb-1">
+            <label class="block text-xs font-bold text-slate-700 dark:text-slate-300">Full Article Body</label>
+            <span id="admin-reading-time-estimate" class="text-[10px] text-slate-400 font-mono">Estimated read time: 1 min read (0 words)</span>
+          </div>
+          <textarea id="admin-form-content" rows="6" required oninput="updateEstimate()" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs focus:outline-none font-sans leading-relaxed"></textarea>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Tags (Comma separated)</label>
+          <input type="text" id="admin-form-tags" class="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs focus:outline-none">
+        </div>
+
+        <div class="flex justify-end space-x-3 pt-3 border-t border-slate-100 dark:border-slate-800">
+          <button type="button" onclick="closePostEditorModal()" class="px-4 py-2 text-xs font-semibold text-slate-500">Cancel</button>
+          <button type="submit" class="bg-rose-600 hover:bg-rose-500 text-white px-5 py-2 rounded-xl text-xs font-bold shadow-md transition">
+            Publish Directly to Feed
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast" class="fixed bottom-5 right-5 z-50 hidden bg-slate-900 text-white text-xs font-semibold px-4 py-3 rounded-2xl shadow-2xl border border-slate-700 flex items-center space-x-2.5 animate-slide-up">
+    <i class="fa-solid fa-circle-info text-rose-500 text-sm"></i>
+    <span id="toast-message">Notification message</span>
+  </div>
+
+  <!-- BOOKMARK SIDE DRAWER -->
+  <div id="bookmark-drawer" class="fixed inset-y-0 right-0 z-50 w-80 bg-white dark:bg-slate-900 shadow-2xl border-l border-slate-200 dark:border-slate-800 p-6 hidden flex flex-col space-y-4 animate-drawer-in">
+    <div class="flex justify-between items-center border-b border-slate-100 dark:border-slate-800 pb-3">
+      <h3 class="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+        <i class="fa-solid fa-bookmark text-rose-500"></i>
+        <span>Saved Bookmarks</span>
+      </h3>
+      <button onclick="toggleBookmarkDrawer()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div id="bookmark-list" class="flex-grow overflow-y-auto space-y-3">
+      <!-- Dynamic bookmarks -->
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 text-xs py-8 border-t border-slate-800 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <div>
+        <span class="font-bold text-white">Okay, but why?</span> &copy; 2026. All rights reserved.
+      </div>
+      <div class="flex items-center gap-4">
+        <span>Submissions: <a href="mailto:herart36@gmail.com" class="text-rose-400 hover:underline">herart36@gmail.com</a></span>
+        <span>•</span>
+        <button onclick="openAdminAuthModal()" class="hover:text-slate-200 underline font-mono text-[11px]">
+          Editorial Admin Desk
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // INITIAL BLOG DATA
+    const defaultPublishedPosts = [
+      {
+        id: 'post-101',
+        title: 'Why Are We Still Working 40 Hours a Week in the Age of AI?',
+        excerpt: 'Productivity has exploded over the past three decades, yet the standard 9-to-5 remains stubbornly unchanged. What gives?',
+        category: 'Societal Issues',
+        featured: true,
+        image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1000&q=80',
+        author: 'Jordan Vance',
+        date: 'Sept 25, 2026',
+        readTime: '5 min read',
+        likes: 184,
+        views: 890,
+        saves: 42,
+        tags: ['WorkCulture', 'SocietalIssues', 'Productivity'],
+        sourceName: 'Harvard Business Review',
+        sourceUrl: 'https://hbr.org',
+        content: `
+          <p class="font-semibold text-base">We were promised that automation and technology would grant humanity endless leisure time. Instead, we just get more emails.</p>
+          <p>Looking at the modern landscape, standard work expectations haven't evolved at the same pace as computational efficiency. Societal burnout is at an all-time high, raising fundamental questions about how we structure work, productivity, and life balance.</p>
+          <p>Why do we still tie personal worth to hours spent at a desk when output matters far more than presence?</p>
+        `,
+        comments: [
+          { author: 'Clara M.', text: '100% agree! We need a standard 4-day workweek everywhere.', date: '1 hour ago' }
+        ]
+      },
+      {
+        id: 'post-102',
+        title: 'Capsule Wardrobes: Liberation or Just Another Form of Consumerism?',
+        excerpt: 'Minimalism was supposed to free us from trend chasing, but curate-your-closet culture has spawned a whole new luxury market.',
+        category: 'Fashion & Style',
+        featured: false,
+        image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80',
+        author: 'Taylor Reed',
+        date: 'Sept 24, 2026',
+        readTime: '4 min read',
+        likes: 128,
+        views: 640,
+        saves: 35,
+        tags: ['Fashion', 'Minimalism', 'Style'],
+        sourceName: 'Vogue Business',
+        sourceUrl: 'https://voguebusiness.com',
+        content: `<p>Buying 10 high-end "essential" beige sweaters to replace your 20 fast-fashion sweaters is still consuming. Let's talk about what capsule wardrobes actually accomplish...</p>`,
+        comments: []
+      },
+      {
+        id: 'post-103',
+        title: 'The Art of Slow Mornings in a Hyper-Speed World',
+        excerpt: 'Why reclaiming the first hour of your day without screens might be the ultimate modern rebellion.',
+        category: 'Slow Living',
+        featured: false,
+        image: 'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80',
+        author: 'Elena Rostova',
+        date: 'Sept 22, 2026',
+        readTime: '3 min read',
+        likes: 210,
+        views: 1120,
+        saves: 78,
+        tags: ['SlowLiving', 'Wellness', 'Lifestyle'],
+        content: `<p>Before notifications flood your consciousness, there is a quiet window of clarity waiting to be preserved...</p>`,
+        comments: []
+      }
+    ];
+
+    // APPLICATION STATE
+    let state = {
+      publishedPosts: JSON.parse(localStorage.getItem('obw_published_posts')) || defaultPublishedPosts,
+      bookmarkedIds: JSON.parse(localStorage.getItem('obw_bookmarks')) || [],
+      pollState: JSON.parse(localStorage.getItem('obw_poll_state')) || {
+        voted: false,
+        userChoice: null,
+        options: [
+          { id: 'opt1', text: 'Yes, completely ruined', votes: 1140 },
+          { id: 'opt2', text: 'No, we adapt just fine', votes: 342 }
+        ]
+      },
+      activeCategory: 'All',
+      searchQuery: '',
+      isAdminUnlocked: false,
+      currentView: 'public',
+      activeReaderPostId: null
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCategories();
+      renderFeed();
+      renderMostPopular();
+      renderSidebarTags();
+      renderPoll();
+      updateBookmarkBadge();
+      updateEstimate();
+
+      // KEYBOARD SHORTCUT: Ctrl + Shift + A for Admin Access
+      window.addEventListener('keydown', (e) => {
+        if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+          e.preventDefault();
+          openAdminAuthModal();
+        }
+      });
+    });
+
+    // POLL RENDERER
+    function renderPoll() {
+      const container = document.getElementById('poll-widget-container');
+      const votesCountEl = document.getElementById('poll-total-votes');
+      if (!container) return;
+
+      const totalVotes = state.pollState.options.reduce((sum, opt) => sum + opt.votes, 0);
+      if (votesCountEl) votesCountEl.innerText = `${totalVotes.toLocaleString()} votes`;
+
+      if (!state.pollState.voted) {
+        // Interactive Voting Buttons
+        container.innerHTML = state.pollState.options.map(opt => `
+          <button onclick="votePoll('${opt.id}')" class="w-full text-left p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/80 hover:bg-rose-50 dark:hover:bg-rose-950/40 border border-slate-200 dark:border-slate-700/80 hover:border-rose-500/50 text-xs font-semibold text-slate-800 dark:text-slate-200 flex justify-between items-center transition group">
+            <span>${opt.text}</span>
+            <i class="fa-regular fa-circle text-slate-400 group-hover:text-rose-500 transition-colors"></i>
+          </button>
+        `).join('');
+      } else {
+        // Show Percentage Progress Results
+        container.innerHTML = state.pollState.options.map(opt => {
+          const pct = Math.round((opt.votes / totalVotes) * 100) || 0;
+          const isUserChoice = state.pollState.userChoice === opt.id;
+          const barColor = isUserChoice ? 'bg-rose-600' : 'bg-slate-400 dark:bg-slate-600';
+          const badgeClass = isUserChoice ? 'text-rose-600 font-bold' : 'text-slate-500';
+
+          return `
+            <div class="space-y-1">
+              <div class="flex justify-between items-center text-xs">
+                <span class="${badgeClass} flex items-center gap-1">
+                  ${isUserChoice ? '<i class="fa-solid fa-circle-check text-rose-500"></i>' : ''}
+                  ${opt.text}
+                </span>
+                <span class="font-mono font-bold text-slate-700 dark:text-slate-300">${pct}%</span>
+              </div>
+              <div class="w-full h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                <div class="${barColor} h-full rounded-full transition-all duration-700" style="width: ${pct}%"></div>
+              </div>
+            </div>
+          `;
+        }).join('') + `<p class="text-[10px] text-emerald-500 font-semibold text-center pt-1"><i class="fa-solid fa-check"></i> Vote recorded! Thanks for participating.</p>`;
+      }
+    }
+
+    function votePoll(optionId) {
+      if (state.pollState.voted) return;
+
+      const opt = state.pollState.options.find(o => o.id === optionId);
+      if (opt) {
+        opt.votes += 1;
+        state.pollState.voted = true;
+        state.pollState.userChoice = optionId;
+        localStorage.setItem('obw_poll_state', JSON.stringify(state.pollState));
+        renderPoll();
+        showToast("Thanks for voting! 🗳️");
+      }
+    }
+
+    function copySubmissionEmail() {
+      const email = 'herart36@gmail.com';
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(email);
+      } else {
+        const dummy = document.createElement('textarea');
+        document.body.appendChild(dummy);
+        dummy.value = email;
+        dummy.select();
+        document.execCommand('copy');
+        document.body.removeChild(dummy);
+      }
+      showToast("Email herart36@gmail.com copied to clipboard!");
+    }
+
+    function openEmailSubmitModal() {
+      const modal = document.getElementById('email-submit-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeEmailSubmitModal() {
+      const modal = document.getElementById('email-submit-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function openAdminAuthModal() {
+      if (state.isAdminUnlocked) {
+        switchView('admin');
+        return;
+      }
+      const modal = document.getElementById('admin-auth-modal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeAdminAuthModal() {
+      const modal = document.getElementById('admin-auth-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function handleAdminAuth(e) {
+      e.preventDefault();
+      const userEl = document.getElementById('admin-input-user');
+      const passEl = document.getElementById('admin-input-password');
+
+      const user = userEl ? userEl.value.trim() : '';
+      const password = passEl ? passEl.value : '';
+
+      if ((user === 'keandonato292004' || user === 'herart36@gmail.com') && password === '@Donato100') {
+        state.isAdminUnlocked = true;
+        closeAdminAuthModal();
+        switchView('admin');
+        showToast('Admin Hub Unlocked! Welcome back.');
+      } else {
+        showToast('Invalid credentials. Please try again.');
+      }
+    }
+
+    function handleAdminLogout() {
+      state.isAdminUnlocked = false;
+      switchView('public');
+      showToast('Logged out of Admin Desk.');
+    }
+
+    function openNewPostModal() {
+      const titleEl = document.getElementById('form-modal-title');
+      const idEl = document.getElementById('admin-post-id');
+      const formEl = document.getElementById('admin-post-form');
+      const modal = document.getElementById('post-editor-modal');
+
+      if (titleEl) titleEl.innerText = "Create Official Article";
+      if (idEl) idEl.value = "";
+      if (formEl) formEl.reset();
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closePostEditorModal() {
+      const modal = document.getElementById('post-editor-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function closeReaderModal() {
+      const modal = document.getElementById('reader-modal');
+      if (modal) modal.classList.add('hidden');
+    }
+
+    function toggleBookmarkDrawer() {
+      const drawer = document.getElementById('bookmark-drawer');
+      if (drawer) {
+        drawer.classList.toggle('hidden');
+        renderBookmarkList();
+      }
+    }
+
+    function updateEstimate() {
+      const adminText = document.getElementById('admin-form-content')?.value || '';
+      const words = adminText.trim().split(/\s+/).filter(Boolean).length;
+      const minutes = Math.max(1, Math.ceil(words / 200));
+
+      const adminEstimateEl = document.getElementById('admin-reading-time-estimate');
+      if (adminEstimateEl) {
+        adminEstimateEl.innerText = `Estimated read time: ${minutes} min read (${words} words)`;
+      }
+
+      return minutes;
+    }
+    window.updateEstimate = updateEstimate;
+
+    function handleMediaUpload(e, targetType) {
+      const file = e.target.files && e.target.files[0];
+      if (!file) return;
+
+      const isImage = file.type.startsWith('image/');
+      const isVideo = file.type.startsWith('video/');
+
+      if (!isImage && !isVideo) {
+        showToast('Invalid file! Only images, GIFs, and videos are accepted.');
+        e.target.value = '';
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(evt) {
+        const dataUrl = evt.target.result;
+        const hiddenInput = document.getElementById('admin-form-image');
+        if (hiddenInput) hiddenInput.value = dataUrl;
+
+        const previewContainer = document.getElementById('admin-media-preview-container');
+        if (previewContainer) {
+          if (isVideo) {
+            previewContainer.innerHTML = `
+              <video src="${dataUrl}" controls class="max-h-36 mx-auto rounded-xl shadow-md"></video>
+              <span class="text-[10px] text-emerald-500 font-bold block mt-1"><i class="fa-solid fa-circle-check"></i> Video attached! Click to change</span>
+            `;
+          } else {
+            previewContainer.innerHTML = `
+              <img src="${dataUrl}" class="max-h-36 mx-auto rounded-xl object-cover shadow-md">
+              <span class="text-[10px] text-emerald-500 font-bold block mt-1"><i class="fa-solid fa-circle-check"></i> Image attached! Click to change</span>
+            `;
+          }
+        }
+        showToast('Media attached successfully!');
+      };
+      reader.readAsDataURL(file);
+    }
+    window.handleMediaUpload = handleMediaUpload;
+
+    function renderMediaElement(mediaUrl, extraClasses = '') {
+      if (!mediaUrl) return '';
+      const isVideo = mediaUrl.startsWith('data:video/') || mediaUrl.match(/\.(mp4|webm|ogg|mov)($|\?)/i);
+      if (isVideo) {
+        return `<video src="${mediaUrl}" controls class="${extraClasses}"></video>`;
+      }
+      return `<img src="${mediaUrl}" class="${extraClasses}" alt="Article Media">`;
+    }
+
+    function switchView(view) {
+      state.currentView = view;
+      const publicView = document.getElementById('public-view');
+      const adminView = document.getElementById('admin-view');
+      const publicBtn = document.getElementById('nav-public-btn');
+
+      if (view === 'admin') {
+        if (!state.isAdminUnlocked) {
+          openAdminAuthModal();
+          return;
+        }
+        if (publicView) publicView.classList.add('hidden');
+        if (adminView) adminView.classList.remove('hidden');
+        if (publicBtn) publicBtn.className = "px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700";
+        renderAdminPublishedManager();
+      } else {
+        if (adminView) adminView.classList.add('hidden');
+        if (publicView) publicView.classList.remove('hidden');
+        if (publicBtn) publicBtn.className = "px-3.5 py-1.5 rounded-xl text-xs sm:text-sm font-bold transition bg-rose-600 text-white shadow-md";
+        renderFeed();
+        renderMostPopular();
+      }
+    }
+
+    function renderCategories() {
+      const categories = ['All', 'Fashion & Style', 'Societal Issues', 'Lifestyle & Culture', 'Politics', 'Showbiz', 'Slow Living'];
+      const container = document.getElementById('category-bar');
+      if (!container) return;
+
+      container.innerHTML = categories.map(cat => {
+        const isActive = state.activeCategory === cat;
+        const activeClass = isActive
+          ? 'bg-rose-600 text-white shadow-md'
+          : 'bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800';
+        return `
+          <button onclick="setCategory('${cat}')" class="px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all ${activeClass}">
+            ${cat}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function setCategory(cat) {
+      state.activeCategory = cat;
+      renderCategories();
+      renderFeed();
+    }
+
+    function handleSearch(query) {
+      state.searchQuery = query.toLowerCase();
+      renderFeed();
+    }
+
+    function renderMostPopular() {
+      const container = document.getElementById('most-popular-container');
+      if (!container) return;
+
+      const sorted = [...state.publishedPosts].sort((a, b) => {
+        const scoreA = ((a.likes || 0) * 3) + ((a.saves || 0) * 5) + (a.views || 0);
+        const scoreB = ((b.likes || 0) * 3) + ((b.saves || 0) * 5) + (b.views || 0);
+        return scoreB - scoreA;
+      }).slice(0, 3);
+
+      container.innerHTML = sorted.map((p, idx) => {
+        const rankBadges = ['bg-amber-500 text-white', 'bg-slate-300 text-slate-800', 'bg-amber-700 text-white'];
+        
+        return `
+          <article class="bg-sand-50 dark:bg-slate-800/60 rounded-2xl p-4 border border-slate-200 dark:border-slate-700/80 flex flex-col justify-between space-y-3 group hover:border-rose-500/50 transition">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between">
+                <span class="w-6 h-6 rounded-lg ${rankBadges[idx] || 'bg-slate-700 text-white'} flex items-center justify-center text-xs font-black shadow-xs">
+                  #${idx + 1}
+                </span>
+                <span class="text-[10px] font-bold text-rose-500 uppercase tracking-wider">${p.category}</span>
+              </div>
+
+              <div class="relative h-36 overflow-hidden rounded-xl cursor-pointer" onclick="openReaderModal('${p.id}')">
+                ${renderMediaElement(p.image, 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-500')}
+              </div>
+
+              <h3 onclick="openReaderModal('${p.id}')" class="font-serif font-bold text-sm text-slate-900 dark:text-white group-hover:text-rose-500 transition-colors line-clamp-2 cursor-pointer leading-snug">
+                ${p.title}
+              </h3>
+            </div>
+
+            <div class="pt-2 border-t border-slate-200/80 dark:border-slate-700/60 flex items-center justify-between text-[11px] text-slate-500">
+              <div class="flex items-center space-x-2.5">
+                <span title="Reads"><i class="fa-solid fa-eye text-slate-400 mr-1"></i>${p.views || 0}</span>
+                <span title="Likes"><i class="fa-solid fa-heart text-rose-500 mr-1"></i>${p.likes || 0}</span>
+                <span title="Saves"><i class="fa-solid fa-bookmark text-amber-500 mr-1"></i>${p.saves || 0}</span>
+              </div>
+              <button onclick="openReaderModal('${p.id}')" class="font-bold text-rose-600 hover:underline">
+                Read
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function renderFeed() {
+      const filtered = state.publishedPosts.filter(p => {
+        const matchesCat = state.activeCategory === 'All' || p.category === state.activeCategory;
+        const matchesSearch = p.title.toLowerCase().includes(state.searchQuery) ||
+                              p.excerpt.toLowerCase().includes(state.searchQuery) ||
+                              p.author.toLowerCase().includes(state.searchQuery) ||
+                              (p.tags && p.tags.some(t => t.toLowerCase().includes(state.searchQuery)));
+        return matchesCat && matchesSearch;
+      });
+
+      const heroContainer = document.getElementById('featured-hero-container');
+      const gridContainer = document.getElementById('posts-grid');
+      const emptyState = document.getElementById('empty-feed-state');
+
+      if (!heroContainer || !gridContainer) return;
+
+      if (filtered.length === 0) {
+        heroContainer.innerHTML = '';
+        gridContainer.innerHTML = '';
+        if (emptyState) emptyState.classList.remove('hidden');
+        return;
+      } else {
+        if (emptyState) emptyState.classList.add('hidden');
+      }
+
+      const featured = filtered.find(p => p.featured) || filtered[0];
+      const standard = filtered.filter(p => p.id !== featured.id);
+
+      // Hero Article
+      heroContainer.innerHTML = `
+        <article class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all group">
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
+            <div class="md:col-span-7 overflow-hidden relative min-h-[260px] cursor-pointer" onclick="openReaderModal('${featured.id}')">
+              ${renderMediaElement(featured.image, 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-500')}
+              <span class="absolute top-4 left-4 bg-rose-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-lg">
+                ${featured.category}
+              </span>
+            </div>
+            <div class="md:col-span-5 p-6 md:p-8 flex flex-col justify-between space-y-4">
+              <div>
+                <div class="flex items-center space-x-2 text-[11px] text-slate-400 mb-2">
+                  <span>By <strong>${featured.author}</strong></span>
+                  <span>•</span>
+                  <span>${featured.readTime}</span>
+                </div>
+                <h2 onclick="openReaderModal('${featured.id}')" class="font-serif font-black text-xl md:text-2xl text-slate-900 dark:text-white hover:text-rose-600 cursor-pointer transition-colors leading-snug">
+                  ${featured.title}
+                </h2>
+                <p class="text-xs text-slate-600 dark:text-slate-400 mt-3 line-clamp-3 leading-relaxed font-light">
+                  ${featured.excerpt}
+                </p>
+              </div>
+
+              <div class="pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                <button onclick="openReaderModal('${featured.id}')" class="text-xs font-bold text-rose-600 flex items-center space-x-1.5 hover:underline">
+                  <span>Read story</span>
+                  <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </button>
+                <button onclick="toggleBookmark('${featured.id}')" class="text-slate-400 hover:text-rose-500 p-1">
+                  <i class="fa-solid fa-bookmark ${state.bookmarkedIds.includes(featured.id) ? 'text-rose-500' : ''}"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+      `;
+
+      // Grid Articles
+      gridContainer.innerHTML = standard.map(p => {
+        const isBookmarked = state.bookmarkedIds.includes(p.id);
+        return `
+          <article class="bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition flex flex-col justify-between group">
+            <div>
+              <div class="relative h-48 overflow-hidden cursor-pointer" onclick="openReaderModal('${p.id}')">
+                ${renderMediaElement(p.image, 'w-full h-full object-cover group-hover:scale-105 transition-transform duration-500')}
+                <span class="absolute top-3 left-3 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+                  ${p.category}
+                </span>
+                <button onclick="event.stopPropagation(); toggleBookmark('${p.id}')" class="absolute top-3 right-3 p-2 rounded-full bg-white/80 dark:bg-slate-900/80 text-slate-700 dark:text-slate-200 hover:text-rose-600 text-xs shadow">
+                  <i class="fa-solid fa-bookmark ${isBookmarked ? 'text-rose-500' : ''}"></i>
+                </button>
+              </div>
+              <div class="p-5 space-y-2 cursor-pointer" onclick="openReaderModal('${p.id}')">
+                <div class="text-[11px] text-slate-400">By <strong>${p.author}</strong> • ${p.readTime}</div>
+                <h3 class="font-serif font-bold text-base text-slate-900 dark:text-white group-hover:text-rose-600 transition-colors line-clamp-2">
+                  ${p.title}
+                </h3>
+                <p class="text-xs text-slate-600 dark:text-slate-400 line-clamp-2 font-light">
+                  ${p.excerpt}
+                </p>
+              </div>
+            </div>
+
+            <div class="p-5 pt-0 flex items-center justify-between border-t border-slate-100 dark:border-slate-800/60 pt-3 text-xs">
+              <button onclick="openReaderModal('${p.id}')" class="font-bold text-rose-600 hover:underline flex items-center gap-1">
+                Read story <i class="fa-solid fa-arrow-right text-[10px]"></i>
+              </button>
+              <span class="text-slate-400 font-semibold flex items-center gap-1">
+                <i class="fa-solid fa-heart text-rose-500"></i> ${p.likes || 0}
+              </span>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    function renderSidebarTags() {
+      const container = document.getElementById('sidebar-tags');
+      if (!container) return;
+
+      const tags = Array.from(new Set(state.publishedPosts.flatMap(p => p.tags || [])));
+      container.innerHTML = tags.map(t => `
+        <span onclick="handleSearch('${t}')" class="cursor-pointer px-2.5 py-1 bg-slate-100 dark:bg-slate-800 hover:bg-rose-600 hover:text-white text-slate-600 dark:text-slate-300 text-[11px] font-semibold rounded-lg transition">
+          #${t}
+        </span>
+      `).join('');
+    }
+
+    function openReaderModal(id) {
+      const p = state.publishedPosts.find(post => post.id === id);
+      if (!p) return;
+
+      p.views = (p.views || 0) + 1;
+      saveState();
+
+      state.activeReaderPostId = id;
+      const catEl = document.getElementById('modal-category');
+      const titleEl = document.getElementById('modal-title');
+      const authorEl = document.getElementById('modal-author-name');
+      const avatarEl = document.getElementById('modal-author-avatar');
+      const dateEl = document.getElementById('modal-date-time');
+      const likesEl = document.getElementById('modal-likes-count');
+      const viewsEl = document.getElementById('modal-views-count');
+      const coverContainer = document.getElementById('modal-cover-container');
+      const contentEl = document.getElementById('modal-content');
+      const modal = document.getElementById('reader-modal');
+
+      if (catEl) catEl.innerText = p.category;
+      if (titleEl) titleEl.innerText = p.title;
+      if (authorEl) authorEl.innerText = p.author;
+      if (avatarEl) avatarEl.innerText = p.author.charAt(0);
+      if (dateEl) dateEl.innerText = `${p.date} • ${p.readTime}`;
+      if (likesEl) likesEl.innerText = p.likes || 0;
+      if (viewsEl) viewsEl.innerText = p.views || 0;
+      if (coverContainer) {
+        coverContainer.innerHTML = renderMediaElement(p.image, 'w-full h-64 md:h-80 object-cover rounded-2xl shadow-md');
+      }
+      if (contentEl) contentEl.innerHTML = p.content;
+
+      const sourceContainer = document.getElementById('modal-source-container');
+      const sourceLink = document.getElementById('modal-source-link');
+      if (sourceContainer && sourceLink) {
+        if (p.sourceName) {
+          sourceContainer.classList.remove('hidden');
+          sourceLink.innerText = p.sourceName;
+          sourceLink.href = p.sourceUrl || '#';
+        } else {
+          sourceContainer.classList.add('hidden');
+        }
+      }
+
+      const bookmarkIcon = document.getElementById('modal-bookmark-icon');
+      if (bookmarkIcon) {
+        bookmarkIcon.className = state.bookmarkedIds.includes(p.id) ? "fa-solid fa-bookmark text-rose-500" : "fa-solid fa-bookmark";
+      }
+
+      renderComments(p);
+      renderMostPopular();
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function toggleLikeCurrentPost() {
+      const p = state.publishedPosts.find(post => post.id === state.activeReaderPostId);
+      if (p) {
+        p.likes = (p.likes || 0) + 1;
+        const countEl = document.getElementById('modal-likes-count');
+        if (countEl) countEl.innerText = p.likes;
+        saveState();
+        renderFeed();
+        renderMostPopular();
+        showToast('Liked story! ❤️');
+      }
+    }
+
+    function toggleBookmarkCurrentPost() {
+      if (state.activeReaderPostId) {
+        toggleBookmark(state.activeReaderPostId);
+        const p = state.publishedPosts.find(post => post.id === state.activeReaderPostId);
+        const bookmarkIcon = document.getElementById('modal-bookmark-icon');
+        if (p && bookmarkIcon) {
+          bookmarkIcon.className = state.bookmarkedIds.includes(p.id) ? "fa-solid fa-bookmark text-rose-500" : "fa-solid fa-bookmark";
+        }
+      }
+    }
+
+    function renderComments(post) {
+      const countEl = document.getElementById('comments-count');
+      const listEl = document.getElementById('modal-comments-list');
+      const comments = post.comments || [];
+
+      if (countEl) countEl.innerText = comments.length;
+      if (!listEl) return;
+
+      if (comments.length === 0) {
+        listEl.innerHTML = `<p class="text-xs text-slate-400 italic">No reflections shared yet. Be the first!</p>`;
+        return;
+      }
+
+      listEl.innerHTML = comments.map(c => `
+        <div class="bg-slate-50 dark:bg-slate-800/60 p-3 rounded-2xl text-xs space-y-1">
+          <div class="flex justify-between items-center font-bold">
+            <span class="text-slate-800 dark:text-slate-200">${c.author}</span>
+            <span class="text-[10px] text-slate-400">${c.date}</span>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 font-light">${c.text}</p>
+        </div>
+      `).join('');
+    }
+
+    function handleAddComment(e) {
+      e.preventDefault();
+      const authorInput = document.getElementById('comment-author-input');
+      const textInput = document.getElementById('comment-text-input');
+      const author = authorInput ? authorInput.value.trim() : 'Reader';
+      const text = textInput ? textInput.value.trim() : '';
+
+      const post = state.publishedPosts.find(p => p.id === state.activeReaderPostId);
+      if (!post) return;
+
+      if (!post.comments) post.comments = [];
+      post.comments.push({ author, text, date: 'Just now' });
+
+      saveState();
+      renderComments(post);
+
+      if (authorInput) authorInput.value = '';
+      if (textInput) textInput.value = '';
+      showToast('Reflection posted!');
+    }
+
+    function toggleBookmark(id) {
+      const p = state.publishedPosts.find(post => post.id === id);
+      const idx = state.bookmarkedIds.indexOf(id);
+      
+      if (idx > -1) {
+        state.bookmarkedIds.splice(idx, 1);
+        if (p) p.saves = Math.max(0, (p.saves || 1) - 1);
+        showToast('Removed from bookmarks');
+      } else {
+        state.bookmarkedIds.push(id);
+        if (p) p.saves = (p.saves || 0) + 1;
+        showToast('Saved to reading list!');
+      }
+
+      saveState();
+      updateBookmarkBadge();
+      renderFeed();
+      renderMostPopular();
+      renderBookmarkList();
+    }
+
+    function updateBookmarkBadge() {
+      const badge = document.getElementById('bookmark-badge');
+      const count = state.bookmarkedIds.length;
+      if (badge) {
+        if (count > 0) {
+          badge.innerText = count;
+          badge.classList.remove('hidden');
+        } else {
+          badge.classList.add('hidden');
+        }
+      }
+    }
+
+    function renderBookmarkList() {
+      const container = document.getElementById('bookmark-list');
+      if (!container) return;
+
+      if (state.bookmarkedIds.length === 0) {
+        container.innerHTML = `<p class="text-xs text-slate-400 text-center py-8">No saved articles yet. Bookmark any story to read later!</p>`;
+        return;
+      }
+
+      container.innerHTML = state.bookmarkedIds.map(id => {
+        const p = state.publishedPosts.find(post => post.id === id);
+        if (!p) return '';
+        return `
+          <div class="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-xs flex justify-between items-center gap-3">
+            <div>
+              <span class="text-[9px] font-bold uppercase tracking-wider text-rose-500">${p.category}</span>
+              <h4 onclick="openReaderModal('${p.id}'); toggleBookmarkDrawer()" class="font-serif font-bold text-sm text-slate-900 dark:text-white hover:text-rose-500 cursor-pointer line-clamp-1">${p.title}</h4>
+              <span class="text-[10px] text-slate-400">By ${p.author}</span>
+            </div>
+            <button onclick="toggleBookmark('${p.id}')" class="text-slate-400 hover:text-rose-500 p-1">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderAdminPublishedManager() {
+      const container = document.getElementById('published-manager-list');
+      if (!container) return;
+
+      container.innerHTML = state.publishedPosts.map(p => `
+        <div class="bg-slate-50 dark:bg-slate-800/40 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-700/60 flex items-center justify-between text-xs">
+          <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-xl overflow-hidden bg-slate-200 dark:bg-slate-700">
+              ${renderMediaElement(p.image, 'w-full h-full object-cover')}
+            </div>
+            <div>
+              <span class="font-bold text-slate-900 dark:text-white block line-clamp-1">${p.title}</span>
+              <span class="text-[10px] text-slate-400">${p.category} • By ${p.author} • ${p.views || 0} views</span>
+            </div>
+          </div>
+          <div class="flex items-center space-x-2">
+            <button onclick="openEditAdminModal('${p.id}')" class="p-1.5 text-sky-500 hover:bg-sky-50 dark:hover:bg-slate-700 rounded-lg">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+            <button onclick="deletePublishedPost('${p.id}')" class="p-1.5 text-rose-500 hover:bg-rose-50 dark:hover:bg-slate-700 rounded-lg">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function deletePublishedPost(id) {
+      state.publishedPosts = state.publishedPosts.filter(p => p.id !== id);
+      saveState();
+      renderAdminPublishedManager();
+      renderFeed();
+      renderMostPopular();
+      showToast("Article deleted from feed.");
+    }
+
+    function saveAdminPost(e) {
+      e.preventDefault();
+      const id = document.getElementById('admin-post-id')?.value;
+      const title = document.getElementById('admin-form-title')?.value || 'Untitled';
+      const category = document.getElementById('admin-form-category')?.value || 'Fashion & Style';
+      const author = document.getElementById('admin-form-author')?.value || 'Admin';
+      const image = document.getElementById('admin-form-image')?.value || 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=800&q=80';
+      const excerpt = document.getElementById('admin-form-excerpt')?.value || '';
+      const content = document.getElementById('admin-form-content')?.value || '';
+      const tags = document.getElementById('admin-form-tags')?.value.split(',').map(t => t.trim()).filter(Boolean) || [];
+      const sourceName = document.getElementById('admin-form-source-name')?.value || '';
+      const sourceUrl = document.getElementById('admin-form-source-url')?.value || '';
+
+      if (id) {
+        const index = state.publishedPosts.findIndex(p => p.id === id);
+        if (index !== -1) {
+          state.publishedPosts[index] = {
+            ...state.publishedPosts[index],
+            title, category, author, image, excerpt, content, tags, sourceName, sourceUrl
+          };
+        }
+      } else {
+        const newPost = {
+          id: 'post-' + Date.now(),
+          title, excerpt, category, author, image,
+          featured: false,
+          date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+          readTime: `${Math.ceil(content.length / 300)} min read`,
+          likes: 0,
+          views: 1,
+          saves: 0,
+          tags, content, sourceName, sourceUrl, comments: []
+        };
+        state.publishedPosts.unshift(newPost);
+      }
+
+      saveState();
+      renderAdminPublishedManager();
+      closePostEditorModal();
+      renderMostPopular();
+      showToast("Post saved successfully.");
+    }
+
+    function openEditAdminModal(id) {
+      const p = state.publishedPosts.find(post => post.id === id);
+      if (!p) return;
+
+      const titleEl = document.getElementById('form-modal-title');
+      const idEl = document.getElementById('admin-post-id');
+      const tEl = document.getElementById('admin-form-title');
+      const cEl = document.getElementById('admin-form-category');
+      const aEl = document.getElementById('admin-form-author');
+      const imgEl = document.getElementById('admin-form-image');
+      const eEl = document.getElementById('admin-form-excerpt');
+      const contentEl = document.getElementById('admin-form-content');
+      const tagsEl = document.getElementById('admin-form-tags');
+      const snEl = document.getElementById('admin-form-source-name');
+      const suEl = document.getElementById('admin-form-source-url');
+      const modal = document.getElementById('post-editor-modal');
+
+      if (titleEl) titleEl.innerText = "Edit Published Post";
+      if (idEl) idEl.value = p.id;
+      if (tEl) tEl.value = p.title;
+      if (cEl) cEl.value = p.category;
+      if (aEl) aEl.value = p.author;
+      if (imgEl) imgEl.value = p.image;
+      if (eEl) eEl.value = p.excerpt;
+      if (contentEl) contentEl.value = p.content;
+      if (tagsEl) tagsEl.value = (p.tags || []).join(', ');
+      if (snEl) snEl.value = p.sourceName || '';
+      if (suEl) suEl.value = p.sourceUrl || '';
+
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toast-message');
+
+      if (toastMsg) toastMsg.innerText = msg;
+      if (toast) {
+        toast.classList.remove('hidden');
+        setTimeout(() => {
+          if (toast) toast.classList.add('hidden');
+        }, 3000);
+      }
+    }
+
+    function toggleDarkMode() {
+      document.documentElement.classList.toggle('dark');
+      const icon = document.getElementById('dark-icon');
+      if (icon) {
+        if (document.documentElement.classList.contains('dark')) {
+          icon.className = "fa-solid fa-sun text-amber-400";
+        } else {
+          icon.className = "fa-solid fa-moon";
+        }
+      }
+    }
+
+    function saveState() {
+      localStorage.setItem('obw_published_posts', JSON.stringify(state.publishedPosts));
+      localStorage.setItem('obw_bookmarks', JSON.stringify(state.bookmarkedIds));
+    }
+  </script>
+</body>
+</html>
